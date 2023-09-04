@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "img": {
+            "src": "src/certificates/sertifikat-backend.webp",
+            "alt": "sertifikat back end developer dari dicoding"
+        }
+    },
+    {
+        "id": 2,
+        "img": {
+            "src": "/src/certificates/baparekraf-developer-day-2023-certificate_1.webp",
+            "alt": "sertifikat back end developer dari dicoding"
+        }
+    },
+    {
+        "id": 3,
+        "img": {
+            "src": "/src/certificates/dicoding-developer-coaching-94.webp",
+            "alt": "sertifikat back end developer dari dicoding"
+        }
+    },
+    {
+        "id": 4,
+        "img": {
+            "src": "/src/certificates/dicoding-developer-coaching-92.webp",
+            "alt": "sertifikat back end developer dari dicoding"
+        }
+    },
+    {
+        "id": 5,
+        "img": {
+            "src": "/src/certificates/dicoding-developer-coaching-91.webp",
+            "alt": "sertifikat back end developer dari dicoding"
+        }
+    }
+]

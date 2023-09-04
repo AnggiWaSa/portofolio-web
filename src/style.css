@@ -1,9 +1,16 @@
-:root {
-    --color-warning: #e9da50;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Roboto:ital@0;1&family=Source+Code+Pro:ital@0;1&display=swap');
 
-    --font-1: "Source Sans Pro";
-    --font-2: "Space Grotesk";
-    --font-3: "Comfortaa";
+:root {
+    --color-dark: #171717;
+    --color-light: #ffffff;
+    --color-success: #03c988;
+    --color-danger: #DA0037;
+    --color-warning: #e9da50;
+    --color-gradient: linear-gradient(140deg, var(--color-danger), var(--color-warning), var(--color-success));
+    
+    --font-1: 'Comfortaa', cursive;
+    --font-2: 'Roboto', sans-serif;
+    --font-3: 'Source Code Pro', monospace;
 
     --container-padding: 10rem;
     --container-fluid-padding: 0.5rem;
@@ -11,21 +18,415 @@
 }
 
 * {
+    border: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--color-light);
+    color: var(var(--color-dark));
+    font-family: var(--font-2);
+    font-size: 2rem;
+}
+
+.hls {
+    display: inline-block;
+    position: relative;
+}
+.hls:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--color-gradient); 
 }
 
 /* HEADER */
+header nav { 
+    background-color: rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    padding: 0px 2rem; border-radius: 0.5rem;
+    backdrop-filter: blur(8px); z-index: 999; }
 
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+header a {
+    color: rgb(186, 181, 189);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; gap: 0.5rem;
+    padding: 0.7rem 0.2rem;
+    transition: all 0.2s ease 0s;
+}
+
+header li {
+    background-image: linear-gradient(white, white);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 0% 0.2rem;
+}
+header li {
+    transition: all 0.2s ease 0s;
+}
+
+header span {
+    opacity: 0;
+    transition: all 0.2s ease 0s;
+}
+
+header .active {
+    color: var(--color-dark);
+    opacity: 0.5
+}
+
+header li:hover a {
+    color: var(--color-dark);
+    opacity: 0.8;
+    
+}
+
+header li:hover {
+    background-size: 100% 0.2rem;
+}
+
+#nav-home, #nav-about, #nav-certificates, #nav-contact {
+    position: absolute;
+    transform: translate(0px, 1rem);
+}
+
+a:hover #nav-home, a:hover #nav-about, a:hover #nav-certificates, a:hover #nav-contact {
+    opacity: 1;
+    padding-top: 2.5rem;
+}
 
 /* MAIN */
+main {
+    min-height: 100%;
+    min-width: 100%;
+}
 
+main h2 {
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
 
 /* home */
-/* aboud */
-/* projects */
-/* certificates */
-/* contact */
+main .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--container-padding);
+}
 
+.hero .left {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    max-height: 25rem;
+}
+
+.hero .left .welcome {
+    font-size: 2.5rem;
+    font-family: var(--font-3);
+    opacity: 0.75;
+}
+
+.hero  .left .greeting {
+    font-size: 3rem;
+    font-style: italic;
+}
+
+.hero .left h1 {
+    font-size: 4rem;
+    font-family: var(--font-1);
+    margin: auto 0;
+}
+
+.hero .left h1 span {
+    /* display: inline-flex; */
+    justify-content: center;
+    flex-direction: column;
+}
+.hero .left .titles {
+   font-family: var(--font-3)
+}
+
+.hero .right .profile-img {
+    position: relative;
+    height: 75vh;
+    max-height: 25rem;
+    margin: auto;
+    display: inline-block;
+}
+
+.hero .right .profile-img:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    padding: 5px;
+    background: var(--color-gradient) ,linear-gradient(to right, #9c20aa, #fb3570);
+    border-radius: 0 30% 0 0;
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+           mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude
+}
+
+.hero .right .profile-img img {
+    height: 100%;
+    width: fit-content;
+}
+/* aboud */
+.about {
+    height: 100%;
+    padding: 0 var(--container-padding);
+}
+
+.about h3 {
+    margin-bottom: 2rem;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.about h4 {
+    text-align: center;
+}
+
+.about .skills, .about .learms {
+    text-align: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.about .container img {
+    height: 3rem;
+    opacity: 0.75;
+    transition: all 0.1s ease-in-out 0s;
+    margin-bottom: 0.5rem;
+}
+
+.about .container img:hover {
+    opacity: 1;
+}
+
+/* projects */
+.projects {
+    padding: 0 var(--container-padding)
+}
+/* certificates */
+.certificates {
+    padding: 0 var(--container-padding);
+}
+
+.certificates .container {
+    overflow-x: hidden;
+    position: relative;
+}
+.certificates #certificates-inner {
+    display: flex;
+    gap: 1rem;
+}
+
+.certificates .card {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.certificates img {
+    /* aspect-ratio: 1 / 1; */
+    width: 100%;
+    opacity: 0.;
+    transition: all 0.2s ease 0s;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px 15px 0px 0px;
+    object-position: left top;
+}
+
+.certificates .certificates-controlls {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content:
+    center;
+    gap: 1rem;
+}
+
+.certificates .certificates-carousel {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+/* contact */
+.contact {
+    padding: 3rem var(--container-padding);
+}
+
+.contact .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact .left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; }
+
+.contact .contact-texts {
+    margin: 0px;
+}
+.contact .addresses {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    opacity: 0.6;
+    margin-bottom: .5rem;
+}
+
+.contact .addresses div {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    gap: 1rem;
+    padding: 0;
+}
+
+.contact .addresses div p {
+    padding-left: 3px;
+    margin-top: 0px;
+}
+
+.contact .add-line {
+    display: inline-block;
+    position: relative;
+    width: 2rem;
+}
+
+.contact .add-line:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    width: 100%;
+    left: 0px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--color-gradient);
+}
+.contact .socials {
+    display: flex;
+    gap: 1rem;
+    color: var(--color-dark)
+}
+
+.contact .socials a {
+    color: var(--color-dark);
+    opacity: 0.5;
+    transition: all 0.2s ease 0s;
+}
+
+.contact .socials a:hover {
+    opacity: 0.8;
+}
+
+.contact form {
+    display: flex;
+    flex-direction:column;
+    gap: 1.4rem;
+}
+
+.contact .right {
+    border: 3px solid;
+    opacity: 0.5;
+    color: var(--color-dark);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.contact .form-control {
+    width: 100%;
+}
+
+.contact .form-control input, textarea {
+    color: var(--color-dark);
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border-bottom: 1px solid var(--color-dark);
+}
+
+.contact .form-control input:focus, textarea:focus {
+    background: var(--color-dark);
+    color: var(--color-light);
+    opacity: 0.5;
+}
+
+.contact .form-control textarea {
+    min-height: 250px;
+}
+
+.btn {
+    padding: 0.4rem 1rem;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    
+}
+
+.btn-danger:hover {
+    background-color: rgb(228, 115, 115);
+    background-image: linear-gradient(to right bottom,
+    rgb(214, 103, 103), rgb(240, 142, 142));
+}
+
+
+.btn-success {
+    background-color: var(--color-success);
+}
 
 /* FOOTER */
 footer {
@@ -34,4 +435,56 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+}
+
+footer small {
+    margin: 2rem auto;
+}
+
+
+
+@media screen and (max-width: 767.9px) {
+    body{
+        font-size: 1.5rem;
+    }
+    header nav, .nav-bottom {
+        position: fixed;
+        top: auto;
+        bottom: 0px;
+        border-radius: 0px; width: 100%;
+        background-color: var(--color-light);
+        padding: 0.4rem 1rem;
+    }
+    nav ul {
+        justify-content: center;
+        margin: 0px;
+    }
+    main .hero {
+        padding: 0 var(--container-mobile);
+        flex-wrap: wrap;
+        align-items: normal;
+        justify-content: center !important;
+    }
+  .hero .left { display: flex; flex-direction: column; justify-content: start; align-items: center; text-align: center; }
+  .hero .right { order: -1; display: flex; justify-content: center; align-items: center; }
+  .about { padding: 3rem var(--container-mobile); }
+  about .container { gap: 2rem; flex-wrap: wrap; justify-content: center; }
+  .certificates { padding: 3rem var(--container-mobile) 0 var(--container-mobile); }
+  .contact { padding: 3rem var(--container-mobile); }
+    .contact .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    footer {
+        padding: 2rem var(--container-mobile);
+        text-align: center;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  :root { --container-padding: 1.5rem; }
+  .nav-bottom { display: none; }
+  main .hero { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .hero img { max-width: 100%; }
+  nav ul li span, nav ul li:hover span, nav a:hover span { display: none !important; }
 }

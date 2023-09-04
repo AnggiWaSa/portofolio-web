@@ -1,2 +1,2 @@
 # portofolio-web
-Tugas untuk lpk- Dinus
+Tugas untuk lpk Dinus
