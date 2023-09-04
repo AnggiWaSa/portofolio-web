@@ -1,4 +1,23 @@
 // script.js
+const rootDataset = document.documentElement.dataset;
+const modeToggleBtn = document.getElementById('mode-toggle');
+const icon = document.getElementById('icon');
+
+modeToggleBtn.addEventListener('click', () => {
+    const inDarkMode = (rootDataset.theme === 'dark');
+    rootDataset.theme = inDarkMode ? '' : 'dark';
+
+    // Ganti ikon sesuai dengan mode
+    if (inDarkMode) {
+        icon.src = 'src/icons/sun.svg';
+        icon.alt = 'Light Icon';
+    } else {
+        icon.src = 'src/icons/moon.svg';
+        icon.alt = 'Dark Icon';
+    }
+});
+
+// navigasi
 const navLinks = document.querySelectorAll("nav ul li a");
 
 window.addEventListener("scroll", () => {
@@ -22,6 +41,7 @@ window.addEventListener("scroll", () => {
 });
 
 
+// certificates
 document.addEventListener("DOMContentLoaded", function () {
   const certificatesInner = document.getElementById("certificates-inner");
   const prevBtn = document.getElementById("prev-btn");
